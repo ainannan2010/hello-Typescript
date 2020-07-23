@@ -160,7 +160,7 @@ function f5() {
     }
   }
   // move(new Car());
-  
+
   // 原形链继承
   function move1(vehicle: Bike | Car) {
     vehicle.start();
@@ -177,7 +177,19 @@ function f5() {
 // f5();
 
 function f6() {
-let a: never = {a:3}
+  function check(s: never): never {
+    throw new Error('error');
+  }
+
+  function show(p: string | boolean): void {
+    if (typeof p === 'string') {
+      console.log('this is string');
+    } else {
+      check(p);
+    }
+  }
+
+  show([2, 2]);
 }
 
-f6()
+f6();
